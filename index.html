@@ -249,6 +249,65 @@
     font-size: 0.85rem;
   }
 
+  /* ---------- Case studies (contrast panel) ---------- */
+  .dark-section {
+    background: var(--ink);
+    color: #EDEBE3;
+    border-top: none;
+  }
+  .dark-section .section-head h2 { color: #FAF9F5; }
+  .dark-section .kicker { color: #9A9C8F; }
+
+  .case-row {
+    padding: 24px 0;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .case-row:first-child { border-top: none; }
+  .case-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .case-top h3 { font-size: 1.08rem; font-weight: 600; color: #FAF9F5; }
+  .case-row p {
+    margin: 10px 0 0;
+    color: #B7B5AA;
+    max-width: 56ch;
+    font-size: 0.95rem;
+  }
+  .stat {
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    color: var(--amber);
+    white-space: nowrap;
+  }
+  .tier-bar {
+    width: 140px;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.14);
+    position: relative;
+    flex: 0 0 auto;
+  }
+  .tier-bar span {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    background: var(--teal);
+    border-radius: 3px;
+  }
+  .chips { margin-top: 12px; }
+  .chip {
+    display: inline-block;
+    padding: 4px 11px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    font-size: 0.76rem;
+    color: #D8D6CC;
+    margin: 4px 6px 0 0;
+  }
+
   @media (max-width: 760px) {
     .hero .grid { grid-template-columns: 1fr; }
     .section-head, .included-row, .platform-list, .contact-grid { grid-template-columns: 1fr; gap: 12px; }
@@ -268,6 +327,7 @@
     <div class="wordmark">Deepak</div>
     <nav>
       <a href="#included">What I manage</a>
+      <a href="#case-studies">Track record</a>
       <a href="#background">Background</a>
       <a href="#process">Process</a>
       <a href="#contact">Contact</a>
@@ -333,6 +393,60 @@
         <div class="platform-line"><span>Meta</span><span>Facebook &amp; Instagram campaigns</span></div>
         <div class="platform-line"><span>Reddit Ads</span><span>Community-led targeting</span></div>
         <div class="platform-line"><span>Analytics &amp; reporting</span><span>Google Analytics, Looker Studio dashboards</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="case-studies" class="dark-section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Where I've put budgets to work</h2>
+      <p class="kicker">Client names withheld by request — the categories and scale are real.</p>
+    </div>
+    <div class="platform-list">
+      <div></div>
+      <div>
+        <div class="case-row">
+          <div class="case-top">
+            <h3>Residential real estate</h3>
+            <div class="tier-bar"><span style="width:70%"></span></div>
+          </div>
+          <p>Multi-market Google Search management for a large residential REIT portfolio.</p>
+          <div class="chips"><span class="chip">Google Search</span></div>
+        </div>
+        <div class="case-row">
+          <div class="case-top">
+            <h3>Consumer beverage</h3>
+            <div class="stat">+15–20% YoY</div>
+          </div>
+          <p>Grew a global beverage brand's search media investment year over year while managing day-to-day performance.</p>
+          <div class="chips"><span class="chip">Google Search</span></div>
+        </div>
+        <div class="case-row">
+          <div class="case-top">
+            <h3>Pharma &amp; women's health</h3>
+            <div class="tier-bar"><span style="width:55%"></span></div>
+          </div>
+          <p>Co-led account audits across DTC and HCP funnels for prescription brands, spanning Google and Microsoft Ads.</p>
+          <div class="chips"><span class="chip">Google</span><span class="chip">Microsoft Ads</span></div>
+        </div>
+        <div class="case-row">
+          <div class="case-top">
+            <h3>B2B financial media</h3>
+            <div class="stat">$700K+ /mo</div>
+          </div>
+          <p>Managed global monthly paid search investment across Google and Microsoft Ads for an enterprise B2B brand.</p>
+          <div class="chips"><span class="chip">Google Search</span><span class="chip">Microsoft Ads</span></div>
+        </div>
+        <div class="case-row">
+          <div class="case-top">
+            <h3>Retail &amp; apparel — current</h3>
+            <div class="tier-bar"><span style="width:85%"></span></div>
+          </div>
+          <p>Currently managing search and social for a major apparel brand, spanning Google, Microsoft, Meta, and Reddit.</p>
+          <div class="chips"><span class="chip">Google</span><span class="chip">Microsoft Ads</span><span class="chip">Meta</span><span class="chip">Reddit</span></div>
+        </div>
       </div>
     </div>
   </div>
