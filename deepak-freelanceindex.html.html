@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deepak — Freelance Paid Search &amp; Social Account Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #14192B;
+    --paper: #FFFFFF;
+    --band: #F1F0EA;
+    --amber: #C68F2E;
+    --teal: #1D5C56;
+    --muted: #5B5F6B;
+    --line: #DAD7CD;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- Nav ---------- */
+  header {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  header .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .wordmark {
+    font-family: 'Fraunces', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  nav a {
+    text-decoration: none;
+    font-size: 0.92rem;
+    color: var(--muted);
+    margin-left: 28px;
+    transition: color 0.15s ease;
+  }
+  nav a:hover { color: var(--ink); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 80px 0 64px;
+  }
+  .hero .grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 3.6vw, 2.9rem);
+    max-width: 15ch;
+  }
+  .hero p.lede {
+    margin-top: 22px;
+    font-size: 1.08rem;
+    color: var(--muted);
+    max-width: 46ch;
+  }
+  .hero-meta {
+    margin-top: 28px;
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+  .cta {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 13px 26px;
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 3px;
+    transition: background 0.15s ease;
+  }
+  .cta:hover { background: var(--teal); }
+
+  .week-card {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: rise 0.6s ease 0.15s forwards;
+  }
+  .week-card .head {
+    padding: 16px 20px;
+    background: var(--band);
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .week-row {
+    display: flex;
+    gap: 16px;
+    padding: 14px 20px;
+    border-top: 1px solid var(--line);
+    font-size: 0.92rem;
+  }
+  .week-row .day {
+    flex: 0 0 42px;
+    color: var(--amber);
+    font-weight: 600;
+    font-family: 'Fraunces', serif;
+  }
+
+  @keyframes rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .week-card { animation: none; opacity: 1; transform: none; }
+  }
+
+  /* ---------- Section shell ---------- */
+  section { padding: 64px 0; border-top: 1px solid var(--line); }
+  .section-head {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 40px;
+    margin-bottom: 36px;
+  }
+  .section-head h2 { font-size: 1.6rem; }
+  .section-head .kicker { color: var(--muted); font-size: 0.95rem; max-width: 30ch; }
+
+  /* ---------- Included list ---------- */
+  .included-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 40px;
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+  }
+  .included-row:first-of-type { border-top: none; }
+  .included-row h3 { font-size: 1.05rem; font-weight: 600; }
+  .included-row p { margin: 0; color: var(--muted); max-width: 56ch; }
+
+  /* ---------- Platforms ---------- */
+  .platform-list {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 40px;
+  }
+  .platform-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 16px 0;
+    border-top: 1px solid var(--line);
+    font-size: 0.98rem;
+  }
+  .platform-line:first-child { border-top: none; }
+  .platform-line span:last-child { color: var(--muted); text-align: right; max-width: 40ch; }
+
+  /* ---------- Background / timeline ---------- */
+  .timeline {
+    grid-column: 2;
+    border-left: 2px solid var(--line);
+    padding-left: 28px;
+  }
+  .tl-item { padding-bottom: 30px; position: relative; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -33px;
+    top: 6px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--teal);
+  }
+  .tl-item .yr { font-size: 0.85rem; color: var(--amber); font-weight: 600; }
+  .tl-item h3 { font-size: 1.05rem; margin-top: 4px; font-weight: 600; }
+  .tl-item p { margin: 6px 0 0; color: var(--muted); max-width: 56ch; }
+
+  /* ---------- Process ---------- */
+  .steps {
+    grid-column: 2;
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .step {
+    flex: 1 1 200px;
+    padding: 20px 22px 20px 0;
+    border-right: 1px solid var(--line);
+    margin-right: 22px;
+  }
+  .step:last-child { border-right: none; margin-right: 0; }
+  .step .label { font-size: 0.85rem; color: var(--muted); }
+  .step h3 { font-size: 1.1rem; margin-top: 6px; font-weight: 600; }
+  .step p { color: var(--muted); margin: 8px 0 0; font-size: 0.92rem; }
+
+  /* ---------- Contact ---------- */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .contact-box h2 { font-size: 1.8rem; max-width: 16ch; }
+  .contact-box p { color: var(--muted); margin-top: 16px; max-width: 42ch; }
+  .contact-links { margin-top: 26px; }
+  .contact-links a {
+    display: block;
+    text-decoration: none;
+    font-size: 1.05rem;
+    padding: 12px 0;
+    border-top: 1px solid var(--line);
+  }
+  .contact-links a:first-child { border-top: none; }
+  .contact-links a span { color: var(--muted); font-size: 0.85rem; display: block; }
+
+  footer {
+    padding: 28px 0 48px;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 760px) {
+    .hero .grid { grid-template-columns: 1fr; }
+    .section-head, .included-row, .platform-list, .contact-grid { grid-template-columns: 1fr; gap: 12px; }
+    .timeline, .steps { grid-column: 1; }
+    .steps { flex-direction: column; }
+    .step { border-right: none; margin-right: 0; padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .step:last-child { border-bottom: none; }
+    .platform-line { flex-direction: column; gap: 4px; }
+    .platform-line span:last-child { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="wordmark">Deepak</div>
+    <nav>
+      <a href="#included">What I manage</a>
+      <a href="#background">Background</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="border-top:none;">
+  <div class="wrap grid">
+    <div>
+      <h1>Ongoing account management for teams who don't have time to babysit a bid strategy.</h1>
+      <p class="lede">I run your Google, Microsoft, and Meta ad accounts week over week — pacing, testing, reporting, and fixing what's quietly costing you money before it shows up in the invoice.</p>
+      <a class="cta" href="mailto:youremail@example.com">Get in touch</a>
+      <div class="hero-meta">Paid search &amp; social specialist · ~7 years across agency and enterprise accounts</div>
+    </div>
+    <div class="week-card">
+      <div class="head">A typical week on your account</div>
+      <div class="week-row"><div class="day">Mon</div><div>Budget pacing check and bid review across active campaigns</div></div>
+      <div class="week-row"><div class="day">Tue</div><div>Search query &amp; audience report — trim waste, catch new opportunities</div></div>
+      <div class="week-row"><div class="day">Wed</div><div>Ad copy and creative testing, structure clean-up</div></div>
+      <div class="week-row"><div class="day">Thu</div><div>Cross-platform performance reporting</div></div>
+      <div class="week-row"><div class="day">Fri</div><div>Optimization notes and next week's plan</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="included">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What ongoing management includes</h2>
+      <p class="kicker">Not a monthly check-in — hands-on management of the account, every week.</p>
+    </div>
+    <div class="included-row">
+      <h3>Pacing &amp; bid oversight</h3>
+      <p>Daily-to-weekly monitoring so spend lands where it should, and bids adjust before they drift.</p>
+    </div>
+    <div class="included-row">
+      <h3>Search query &amp; audience review</h3>
+      <p>Regular audits to catch wasted spend, refine targeting, and act on what the data is actually saying.</p>
+    </div>
+    <div class="included-row">
+      <h3>Creative &amp; ad testing</h3>
+      <p>Structured tests on ad copy, extensions, and formats — kept running, not set once and forgotten.</p>
+    </div>
+    <div class="included-row">
+      <h3>Reporting that's actually read</h3>
+      <p>Plain-language reporting on what changed, why, and what's next — not a 40-tab dashboard you have to interpret yourself.</p>
+    </div>
+  </div>
+</section>
+
+<section id="platforms">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Platforms</h2>
+      <p class="kicker">Where the work happens.</p>
+    </div>
+    <div class="platform-list">
+      <div></div>
+      <div>
+        <div class="platform-line"><span>Google Ads</span><span>Search, Shopping, Display, Performance Max</span></div>
+        <div class="platform-line"><span>Microsoft Ads</span><span>Search &amp; audience network</span></div>
+        <div class="platform-line"><span>Meta</span><span>Facebook &amp; Instagram campaigns</span></div>
+        <div class="platform-line"><span>Reddit Ads</span><span>Community-led targeting</span></div>
+        <div class="platform-line"><span>Analytics &amp; reporting</span><span>Google Analytics, Looker Studio dashboards</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="background">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Background</h2>
+      <p class="kicker">Built from the ground up — support, then execution, then ownership.</p>
+    </div>
+    <div class="platform-list">
+      <div></div>
+      <div class="timeline" style="grid-column: 1;">
+        <div class="tl-item">
+          <div class="yr">2015 – 2019</div>
+          <h3>Customer service &amp; technical support</h3>
+          <p>Years in BPO roles building the fundamentals — client communication, troubleshooting, and working to targets.</p>
+        </div>
+        <div class="tl-item">
+          <div class="yr">2019 onward</div>
+          <h3>Google Ads support, then account management</h3>
+          <p>Moved into paid search directly, then spent close to five years managing Google &amp; Microsoft Ads accounts at a global agency across consumer beverage, healthcare, and real estate brands.</p>
+        </div>
+        <div class="tl-item">
+          <div class="yr">Most recent</div>
+          <h3>Senior paid search &amp; social, holding-company side</h3>
+          <p>Managing enterprise and B2B accounts at global scale, including multi-channel budgets and cross-platform reporting.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How we'd work together</h2>
+      <p class="kicker">Simple, low-friction, no long contracts to start.</p>
+    </div>
+    <div class="platform-list">
+      <div></div>
+      <div class="steps">
+        <div class="step">
+          <div class="label">First</div>
+          <h3>Quick account audit</h3>
+          <p>I look at what's running today and flag the obvious wins before anything's agreed.</p>
+        </div>
+        <div class="step">
+          <div class="label">Then</div>
+          <h3>Simple proposal</h3>
+          <p>A short scope and monthly rate based on account size and platforms — no jargon, no lock-in pressure.</p>
+        </div>
+        <div class="step">
+          <div class="label">Ongoing</div>
+          <h3>Weekly management</h3>
+          <p>I take it from there — the weekly cadence above, plus a monthly call to walk through results.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-box">
+      <h2>Let's talk about your account</h2>
+      <p>Whether you're managing your own ads or need dependable overflow support for client work, happy to start with a quick look at what you've got running.</p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:youremail@example.com">Email<span>youremail@example.com</span></a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn<span>linkedin.com/in/yourprofile</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Deepak — Freelance Paid Search &amp; Social Account Management · 2026</div>
+</footer>
+
+</body>
+</html>
